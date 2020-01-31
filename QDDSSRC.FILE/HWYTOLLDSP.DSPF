@@ -1,0 +1,43 @@
+000001180922     A          R TOLLINFO
+000002180922     A                                  1 70DATE
+000003180922     A                                      EDTCDE(Y)
+000004180922     A                                  1 10USER
+000005180923     A                                  2 23'H I G H W A Y      4 0 8      T O -
+000006180922     A                                      L L S'
+000007180923     A                                  4 32'Trip Information'
+000008180923     A                                  6  8'Kilometres traveled :'
+000009180923     A                                  8  8'Type of Vehicle :'
+000010180923     A                                 10  8'Time of Day :'
+000011180923     A                                 12  8'Transponder :'
+000012180923     A            KILOMETRES     3  0B  6 31
+000013180923     A                                      RANGE(0 999)
+000014180922     A  99                                  DSPATR(PR)
+000015180923     A            VEHICLE        1   B  8 31VALUES('L' 'H' 'M')
+000017180922     A  99                                  DSPATR(PR)
+000018180923     A                                  8 35'(L - Light, H - Heavy, M - Multipl-
+000019180922     A                                      e Heavy)'
+000020180922     A                                  8 35' '
+000021180923     A            HOUR           2  0B 10 31RANGE(1 12)
+000022180922     A  99                                  DSPATR(PR)
+000023180923     A                                 10 35'(01 - 12)'
+000024180923     A            AMPM           2   B 10 47VALUES('AM' 'PM')
+000025180922     A  99                                  DSPATR(PR)
+000026180923     A                                 10 52'(AM OR PM)'
+000027180923     A            TRANSPDR       1A  B 12 31VALUES('Y' 'N')
+000028180922     A  99                                  DSPATR(PR)
+000029180923     A                                 12 35'(Y N)'
+000030180922     A          R SHOWTOLL
+000031180922     A                                      OVERLAY
+000032180922     A                                      CF03(03 'Exit')
+000033180923     A                                 14 27'Applicable Toll Charges'
+000034180923     A                                 16 18'Toll Rate : '
+000035180923     A            TOLLRATE       5Y 4O 16 48EDTCDE(1 $)
+000036180923     A                                 18 18'Toll Charge :'
+000037180923     A            TOLLCHARGE     5Y 2O 18 48EDTCDE(1 $)
+000038180923     A                                 20 18'No Transponder Charge :'
+000039180923     A            NOTRANSP       4  2O 20 49EDTCDE(1)
+000040180923     A                                 24 14'F3 - Exit'
+000041180923     A                                 22 22'T O T A L    C H A R G E :'
+000042180924     A            TOTALDUE       5Y 2O 22 58EDTWRD('   .  ')
+000043180923
+000100      

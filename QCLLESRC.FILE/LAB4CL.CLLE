@@ -1,0 +1,96 @@
+000100181016
+000152181016                PGM
+000153181016                DCLF       LAB4DSP
+000154181016                DCL        &CURLIB *CHAR 10
+000155181016                DCL        &OWNER *CHAR 10
+000156181016                DCL        &QPWDEXPITV *CHAR 6
+000157181016                DCL        &MSGQLIB *CHAR 10
+000158181016                DCL        &QACTJOB *DEC 5
+000159181016                DCL        &QACTJOB2 *CHAR 5
+000160181016                DCL        &PRVSIGN *CHAR 13
+000161181016                DCL        &Date *CHAR 17
+000162181016
+000163181016
+000164181016
+000165181016             /*** MAINLINE *****/
+000166181016
+000167181016                SndRcvf
+000168181016                DoWhile    (&IN03 = '0')
+000169181016                   CHGVAR     &IN30 '0'
+000170181016                   CHGVAR     &MSGTXT1 ' '
+000171181016                   CHGVAR     &MSGTXT2 ' '
+000172181016                   Select
+000173181016                      When       &IN21 Call QUsCmdLn
+000174181016                      When       (&OPTION = '1' *or &option = '01') CallSubr OPTION1
+000175181016                      When       (&OPTION = '2' *or &option = '02') CallSubr OPTION2
+000176181016                      When       (&OPTION = '3' *or &option = '03') CallSubr OPTION3
+000177181016                      When       (&OPTION = '4' *or &option = '04') CallSubr OPTION4
+000178181016                      When       (&OPTION = '5' *or &option = '05') CallSubr OPTION5
+000179181016                      Otherwise  CHGVAR     &IN30 '1'
+000180181017
+000181181017
+000182181016                   EndSelect
+000183181016                   SndRcvf
+000184181016
+000185181016                Enddo
+000186181016
+000187181016                SUBR       OPTION1
+000188181016                   RTVUSRPRF  CURLIB(&CURLIB)
+000189181016                   CHGCURLIB  BCI433LIB
+000190181016                   CALL       HWYTOLLRPG
+000191181017
+000192181016                   CHGCURLIB  &CURLIB
+000193181017
+000194181017                   CHGVAR     &MSGTXT1  'The Highway Toll RPGLE program from Instructor was +
+000195181017                                run'
+000196181016                   CHGVAR     &MSGTXT2 'CLLE Program can manage how an RPGLE Business +
+000197181016                                Application is run'
+000198181016
+000199181016                ENDSUBR
+000200181016
+000201181016                SUBR       OPTION2
+000202181016                   RTVSYSVAL  SYSVAL(QPWDEXPITV) RTNVAR(&QPWDEXPITV)
+000203181016                   CHGVAR     &MSGTXT1 ('Password Expiry Intereval set to' *BCAT &QPWDEXPITV +
+000204181016                                *BCAT '(days)')
+000205181016                   CHGVAR     &MSGTXT2 'CLLE Programs can report on the system and manage +
+000206181016                                system wide settings'
+000207181016                ENDSUBR
+000208181016
+000209181016                SUBR       OPTION3
+000210181016                   RTVUSRPRF  USRPRF(*CURRENT) RTNUSRPRF(&OWNER) MSGQLIB(&MSGQLIB)
+000211181016                   CHGVAR     &MSGTXT1 ('Signed on User''s message queue is' *BCAT &MSGQLIB +
+000212181016                                *TCAT '/' *TCAT &OWNER)
+000213181016                   CHGVAR     &MSGTXT2 'CLLE Programs can report on the system and manage +
+000214181016                                system wide settings'
+000215181016                ENDSUBR
+000216181016
+000217181016                SUBR       OPTION4
+000218181016                   RTVSYSVAL  SYSVAL(QACTJOB) RTNVAR(&QACTJOB)
+000219181016                   CHGVAR     &QACTJOB2 &QACTJOB
+000220181016                   CHGVAR     &MSGTXT1 ('Initial number of active jobs for which storage is +
+000221181016                                allocated is:' *BCAT &QACTJOB2)
+000222181016                   CHGVAR     &MSGTXT2 'CLLE Programs can report on the system and manage +
+000223181016                                system wide settings'
+000224181016                ENDSUBR
+000225181016
+000226181016                SUBR       OPTION5
+000227181016                   RTVUSRPRF  RTNUSRPRF(&OWNER) PRVSIGN(&PRVSIGN)
+000228181016                   CHGVAR     &Date  ( %SST(&PRVSIGN 4 2) *CAT '/' *CAT %SST(&PRVSIGN 6 2) +
+000229181016                                *CAT '/' *CAT %SST(&PRVSIGN 2 2) *BCAT %SST(&PRVSIGN 8 2) *CAT +
+000230181016                                ':' *CAT %SST(&PRVSIGN 10 2) *CAT ':' *CAT %SST(&PRVSIGN 12 2) +
+000231181016                                )
+000232181016
+000233181016                   CHGVAR     &MSGTXT1 ('Previous sign on for user' *BCAT &OWNER *BCAT 'was +
+000234181016                                on' *BCAT &Date)
+000235181016                   CHGVAR     &MSGTXT2 'CLLE Programs can report on and manage the users on +
+000236181016                                the system'
+000237181016                ENDSUBR
+000238181016
+000239181016                ENDPGM
+000240181009             ENDSUBR
+000241181009
+000242181009
+000243181008
+000244181008
+000245181008
+000246181008             ENDPGM

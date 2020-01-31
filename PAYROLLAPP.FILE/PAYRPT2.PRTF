@@ -1,0 +1,61 @@
+000100181106     A          R TITLE
+000101181106     A                                  1  3DATE(*YY)
+000102181106     A                                      EDTCDE(Y)
+000103181106     A                                  1 15TIME
+000104181106     A                                  1 44'Weekly Payroll Report'
+000105181106     A                                  1 88'Page:'
+000106181106     A                                  1 93PAGNBR
+000107181106     A                                  2  3'Name:'
+000108181106     A                                  2  9'Sahil Lapsiwala'
+000109181106     A            SHIFTTYPE     30      2 40
+000110181106     A          R COLHDG                    SPACEB(2)
+000111181106     A                                      SPACEA(1)
+000112181106     A                                     6'Employee'
+000113181106     A                                    18'Work'
+000114181106     A                                    28'Pay'
+000115181106     A                                    37'Hourly'
+000116181106     A                                    48'Hours'
+000117181106     A                                    59'Regular'
+000118181106     A                                    73'Overtime'
+000119181106     A                                    89'Total'
+000120181106     A                                     7'Number'
+000121181106     A                                      SPACEB(1)
+000122181106     A                                    17'Shift'
+000123181106     A                                    27'Grade'
+000124181106     A                                    37'Rate'
+000125181106     A                                    47'Worked'
+000126181106     A                                    60'Pay'
+000127181106     A                                    75'Pay'
+000128181106     A                                    90'Pay'
+000129181106     A          R EMPDETAIL
+000131181106     A            EMPNUM    R              4SPACEB(1)
+000132181106     A                                      REFFLD(ALLSHIFT/EMPNUM SENECAPAY/AL-
+000133181106     A                                      LSHIFT)
+000134181106     A                                      EDTWRD('   -   -   ')
+000135181106     A            WORKSHIFT R             19REFFLD(ALLSHIFT/WORKSHIFT +
+000136181106     A                                      SENECAPAY/ALLSHIFT)
+000137181106     A            PAYGRADE  R             29REFFLD(ALLSHIFT/PAYGRADE +
+000138181106     A                                      SENECAPAY/ALLSHIFT)
+000139181106     A            HOURLYRATE     5  2     36EDTCDE(2)
+000140181106     A            HRSWORKED R             48REFFLD(ALLSHIFT/HRSWORKED +
+000141181106     A                                      SENECAPAY/ALLSHIFT)
+000142181106     A                                      EDTCDE(2)
+000143181106     A            REGULARPAY     7  2     57EDTCDE(2)
+000144181106     A            OVERPAY        7  2     72EDTCDE(2)
+000145181106     A            TOTALPAY       7  2     86EDTCDE(2)
+000146181106     A          R TOTALS                    SPACEB(1)
+000147181106     A                                    42'Totals:'
+000148181106     A                                      SPACEB(1)
+000149181106     A            TOTREGPAY      9  2     55EDTCDE(1 $)
+000150181106     A            TOTOVTPAY      9  2     70EDTCDE(1 $)
+000151181106     A            TOTEMPPAY      9  2     85EDTCDE(1 $)
+000152181106
+000153181106     A*%%RS+<record-sequences>
+000154181106     A*%%RS+ <sequence name="Report1">
+000155181106     A*%%RS+  <device type="printer" width="132" height="66" />
+000156181106     A*%%RS+  <record-write record-format="TITLE" />
+000157181106     A*%%RS+  <record-write record-format="COLHDG" />
+000158181106     A*%%RS+  <record-write record-format="EMPDETAIL" />
+000159181106     A*%%RS+  <record-write record-format="TOTALS" />
+000160181106     A*%%RS+ </sequence>
+000161181106     A*%%RS </record-sequences>

@@ -1,0 +1,30 @@
+000100181008     A                                      DSPSIZ(24 80 *DS3)
+000101181007     A          R RECORD1                   CF03(03)
+000102181008     A                                      CF21(21 'QUSCMDLN')
+000103181007     A                                  1 38'Lab 4'
+000104181007     A                                  5  3'Please select one of the following-
+000105181007     A                                       options:'
+000106181007     A                                  8 14'2.  Password Expiry Interval '
+000107181007     A                                  7 14'1.  Run Highway Toll Program'
+000108181007     A                                  9 14'3.  Signed on User''s Message Queu-
+000109181007     A                                      e'
+000110181007     A                                 15 17'Option:'
+000111181007     A                                 23  4'F3=Exit'
+000112181007     A                                 23 17'F21=Comand Line '
+000113181007     A                                  1  3'SAHIL LAPSIWALA'
+000114181007     A                                  2  3'Your Full Name Above'
+000115181007     A                                 10 14'4.  Initial number of active jobs -
+000116181007     A                                      for storage allocation'
+000117181007     A                                 11 14'5.  Previous sign on by signed on -
+000118181007     A                                      user'
+000120181007     A                                  1 67DATE
+000121181008     A                                      EDTWRD('  /  /  ')
+000122181007     A                                  2 67TIME
+000123181016     A            OPTION         2   I 15 27
+000124181007     A  30                                  DSPATR(RI)
+000125181007     A  30                                  DSPATR(PC)
+000126181017     A  30                             15 32'A VALID OPTION MUST BE ENTERED'
+000127181017     A  30                                    DSPATR(RI)
+000128181007     A            MSGTXT2       70   O 18  5
+000129181009     A            MSGTXT1       70   O 17  5
+000130181017
